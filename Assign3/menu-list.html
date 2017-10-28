@@ -1,0 +1,10 @@
+<div style="font-size:16px; color:#4CEA4C" ng-show="menu.wait">Please wait until connection is established ... <br><br></div>
+<div style="font-size:20px; color:#EA4C4C" ng-show="menu.show">Nothing found.</div>
+<ol>
+<li ng-repeat="item in menu.found" style="margin-bottom:8px">
+    ({{ item.short_name }}) <b>{{ item.name }} </b>
+<button class="btn btn-danger btn-xs" ng-click="menu.removeFromMenu($index);">Don't want this one !</button>
+<br>
+<i>{{ item.description }} </i>
+</li>
+</ol>

@@ -14,14 +14,11 @@
                 </div>
 
                 <div class="form-group narrow-button">
-                <button class="btn btn-primary" ng-click="menu.displaySearchMenu();">Narrow It Down For Me!</button>
+                <button class="btn btn-primary" ng-click="menu.displaySearchMenu();">Narrow It Down For Me!</button><t> &nbsp;&nbsp;&nbsp;&nbsp;   The search filters the menu List based on the Name and the Description of the Item. 
                 </div><br><br><br>
                 <!-- found-items should be implemented as a component -->
-                <ol>
-                <li ng-repeat="item in menu.foundItems">
-                  {{ item.short_name }} of {{ item.name }}
-                </li>
-                </ol>
+                <found-items found="menu.foundItems" show="menu.showMessage" wait="menu.connectionInProgress">
+                </found-items>
         </div>
     <script src="angular.min.js"></script>
     <script src="app.js"></script>

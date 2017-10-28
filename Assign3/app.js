@@ -78,8 +78,7 @@
 			promise.then(function (response) {
 		      	var foundItems = response.data.menu_items;
 		      	for (var i = 0; i < foundItems.length ; i++) {
-		      		if (!foundItems[i].description.toLowerCase().includes(searchTerm.toLowerCase()) && 
-		      			!foundItems[i].name.toLowerCase().includes(searchTerm.toLowerCase())) {
+		      		if (!foundItems[i].description.toLowerCase().includes(searchTerm.toLowerCase())) {
 		      			foundItems.splice(i,1);
 		      			i--;
 		      		}

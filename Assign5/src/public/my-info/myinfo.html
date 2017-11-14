@@ -1,0 +1,22 @@
+<div class='container-fluid' style='text-align:center'><br>
+
+	<h1>Informations for the current profile</h1>
+	<br>
+	<div class='container-fluid' style='width:60%;margin:0 auto;text-align:left' ng-show='myinfoctrl.short_name'>
+	<table class='table table-hover' style='margin:0 auto'>
+	<tr><h3><td><b> First Name : </b></td><td> {{myinfoctrl.firstname}}</td></h3></tr>
+	<tr><h3><td><b> Last Name : </b></td><td> {{myinfoctrl.lastname}}</td></h3></tr>
+	<tr><h3><td><b> Mail : </b></td><td> {{myinfoctrl.email}}</td></h3></tr>
+	<tr><h3><td><b> Phone : </b></td><td> {{myinfoctrl.phone}}</td></h3></tr>
+	<tr><h3><td><b> Favorite Meal Short Name : </b></td><td> {{myinfoctrl.short_name}}</td></h3></tr>
+	<tr><h3><td><b> Favorite Meal Full Name : </b></td><td> {{myinfoctrl.name}}</td></h3></tr>
+	<tr><h3><td><b> Favorite Meal Description : </b></td><td> {{myinfoctrl.description}}</td></h3></tr>
+	</table>
+	<br><br>
+	<img src='https://inptist-assign.herokuapp.com/images/{{myinfoctrl.short_name}}.jpg' style='text-align:center;margin-left:35%'>
+	</div>
+	<div ng-hide='myinfoctrl.short_name'>
+		<h3>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></h3>
+	</div>
+<br>
+</div>

@@ -5,12 +5,32 @@
 
 	<form name='signupForm' style='width:350px;text-align:center;margin:0 auto' novalidate>
 
-	<input ng-model='signupctrl.firstname' type='text' class='form-control' name='firstname' placeholder='First Name' required></input><br>
-	<input ng-model='signupctrl.lastname' type='text' class='form-control' name='lastname' placeholder='Last Name' required></input><br>
-	<input ng-model='signupctrl.email' type='email' class='form-control' name='email' placeholder='Email' required></input><br>
-	<input ng-model='signupctrl.phone' type='text' class='form-control' name='phone' placeholder='Phone' required></input><br>
+	<input ng-model='signupctrl.firstname' type='text' class='form-control' name='firstname' placeholder='First Name' minlength='4'
+          ng-maxlength='10' required></input>
+	<span ng-if="(signupForm.firstname.$error.minlength || signupForm.firstname.$error.required) && signupForm.firstname.$touched">
+            First Name must be at least 4 characters long
+    </span>
+    <span ng-if="signupForm.firstname.$error.maxlength && signupForm.firstname.$touched">
+            First Name must not be longer than 10 characters
+    </span><br>
+	<input ng-model='signupctrl.lastname' type='text' class='form-control' name='lastname' placeholder='Last Name' minlength='4'
+          ng-maxlength='10' required></input>
+	<span ng-if="(signupForm.lastname.$error.minlength || signupForm.lastname.$error.required) && signupForm.lastname.$touched">
+            Last Name must be at least 4 characters long
+    </span>
+    <span ng-if="signupForm.lastname.$error.maxlength && signupForm.lastname.$touched">
+            Last Name must not be longer than 10 characters
+    </span><br>
+	<input ng-model='signupctrl.email' type='email' class='form-control' name='email' placeholder='Email' required></input>
+	<span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+            Must be a valid email address: abcdefg@domain format
+    </span><br>
+	<input ng-model='signupctrl.phone' type='text' class='form-control' name='phone' placeholder='Phone ###-###-####' pattern='(\d{3})-(\d{3})-(\d{4})' required></input>
+	<span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+    </span><br>
 	<input ng-model='signupctrl.short_name' type='text' class='form-control' name='short_name' placeholder='Favorite Dish short name (Optional)'></input><br>
-	<button ng-click="signupctrl.submit()" class='btn btn-warning' name='signup' style='width: 100px;color:#000;font-size:16px'>Sign up</button>
+	<button ng-click="signupctrl.submit()" class='btn btn-warning' name='signup' ng-disabled="signupForm.$invalid" style='width: 100px;color:#000;font-size:16px'>Sign up</button>
 	</form>
 <br><br><div><h4> {{signupctrl.errordiv}} </h4></div>
 <br>

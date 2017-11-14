@@ -20,7 +20,7 @@ function SignupController(MenuService) {
       MenuService.name = response.name;
       MenuService.description = response.description;
       console.log(MenuService);
-      signupctrl.errordiv = "Your profile has been registered. Favorite meal : " + response.name ;
+      signupctrl.errordiv = "Your information has been saved." ;
     })
     .catch(function (error) {
     	console.log("Something went terribly wrong.");
